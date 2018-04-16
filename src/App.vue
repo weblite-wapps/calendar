@@ -4,17 +4,16 @@
 
 <script>
 export default {
-  name: 'app',
+  name: 'App',
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style module>
+.root {
+  width: 300px;
+  height: 350px;
+  background: #EEEEEE;
+  border-radius: 10px;
+  overflow: hidden;
 }
 </style>
