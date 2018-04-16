@@ -18,6 +18,6 @@ export default {
   font-weight: bolder;
   text-align: center;
   color: #fcee6d;
-  margin: 0 0 30px 0;
+  margin: 5px 0 25px 0;
 }
 </style>
