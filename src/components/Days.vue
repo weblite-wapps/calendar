@@ -5,6 +5,7 @@
     :key="number"
     :number="number - (numbers - monthNumber)"
     :note="notes[number - (numbers - monthNumber)]"
+    :changeNotes="changeNotes"
   />
 </div>
 </template>
@@ -19,7 +20,7 @@ export default {
 
   components: { Day },
 
-  props: ['year', 'month', 'notes'],
+  props: ['year', 'month', 'notes', 'changeNotes'],
 
   computed: {
     monthNumber() {

@@ -9,6 +9,7 @@
     :year="year"
     :month="month"
     :notes="notes"
+    :changeNotes="changeNotes"
   />
 </div>
 </template>
@@ -34,7 +35,11 @@ export default {
     year: 2018,
     month: 2,
     notes: { 9: 'salam', 13: 'joooon' },
-  })
+  }),
+
+  methods: {
+    changeNotes(day, note) { this.notes[day] = note },
+  },
 }
 </script>
 

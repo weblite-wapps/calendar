@@ -6,6 +6,7 @@
     required='true'
     type='text'
     :value="note"
+    @input="changeNotes(number, $event.target.value)"
   >
   <span>{{ number }}</span>
   <em></em>
@@ -17,7 +18,7 @@
 export default {
   name: 'Days',
 
-  props: ['number', 'note'],
+  props: ['number', 'note', 'changeNotes'],
 
   methods: {
     invalidClass(number) { if (number < 1) return this.$style.invalid },
