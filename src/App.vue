@@ -31,7 +31,7 @@ export default {
 
   data: () => ({
     year: 2018,
-    month: 1,
+    month: 2,
   })
 }
 </script>
