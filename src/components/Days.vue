@@ -28,9 +28,7 @@ export default {
       return monthNumbers[this.month]
     },
 
-    numbers() {
-      return this.monthNumber + new Date(this.year, this.month, 1).getDay() - 1
-    }
+    numbers() { return this.monthNumber + new Date(this.year, this.month, 1).getDay() }
   },
 }
 </script>

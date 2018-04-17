@@ -33,7 +33,7 @@ export default {
 
   data: () => ({
     year: 2018,
-    month: 2,
+    month: 0,
     notes: { 9: 'salam', 13: 'joooon' },
   }),
 

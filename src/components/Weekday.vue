@@ -16,7 +16,7 @@ export default {
   name: 'Weekday',
 
   data: () => ({
-    weekday: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
+    weekday: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
   }),
 }
 </script>
