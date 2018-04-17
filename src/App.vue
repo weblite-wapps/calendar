@@ -1,7 +1,14 @@
 <template>
 <div :class="$style.root">
-  <Header :year="year" :month="month" />
+  <Header
+    :year="year"
+    :month="month"
+  />
   <Weekday />
+  <Days
+    :year="year"
+    :month="month"
+  />
 </div>
 </template>
 
@@ -9,6 +16,7 @@
 // components
 import Header from './components/Header'
 import Weekday from './components/Weekday'
+import Days from './components/Days'
 
 
 export default {
@@ -17,11 +25,12 @@ export default {
   components: {
     Header,
     Weekday,
+    Days,
   },
 
   data: () => ({
-    year: '2018',
-    month: 'August',
+    year: 2018,
+    month: 1,
   })
 }
 </script>
@@ -37,5 +46,10 @@ export default {
   font-family: 'Dosis', sans-serif;
   font-weight: bold;
   overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  -webkit-transform: translateY(-50%) translateX(-50%);
 }
 </style>
