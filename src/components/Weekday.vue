@@ -10,6 +10,7 @@
 </div>
 </template>
 
+
 <script>
 export default {
   name: 'Weekday',
@@ -19,6 +20,7 @@ export default {
   }),
 }
 </script>
+
 
 <style module>
 .root {

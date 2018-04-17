@@ -3,7 +3,7 @@
   <label
     v-for="number in numbers"
     :key="number"
-    :class="[$style.day, number - (numbers - monthNumber) < 1 ? $style.invalid : null]"
+    :class="[$style.day, invalidClass(number)]"
   >
     <input
       class='appointment'
@@ -17,6 +17,7 @@
   </label>
 </div>
 </template>
+
 
 <script>
 export default {
@@ -34,8 +35,15 @@ export default {
       return this.monthNumber + new Date(this.year, this.month, 1).getDay()
     }
   },
+
+  methods: {
+    invalidClass(number) {
+      if(number - (this.numbers - this.monthNumber) < 1) return this.$style.invalid
+    }
+  },
 }
 </script>
+
 
 <style module>
 .day {
