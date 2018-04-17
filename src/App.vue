@@ -8,6 +8,7 @@
   <Days
     :year="year"
     :month="month"
+    :notes="notes"
   />
 </div>
 </template>
@@ -32,6 +33,7 @@ export default {
   data: () => ({
     year: 2018,
     month: 2,
+    notes: { 9: 'salam', 13: 'joooon' },
   })
 }
 </script>

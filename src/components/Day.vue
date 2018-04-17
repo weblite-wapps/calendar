@@ -5,6 +5,7 @@
     placeholder='What would you like to do?'
     required='true'
     type='text'
+    :value="note"
   >
   <span>{{ number }}</span>
   <em></em>
@@ -16,7 +17,7 @@
 export default {
   name: 'Days',
 
-  props: ['number'],
+  props: ['number', 'note'],
 
   methods: {
     invalidClass(number) { if (number < 1) return this.$style.invalid },

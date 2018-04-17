@@ -4,6 +4,7 @@
     v-for="number in numbers"
     :key="number"
     :number="number - (numbers - monthNumber)"
+    :note="notes[number - (numbers - monthNumber)]"
   />
 </div>
 </template>
@@ -18,7 +19,7 @@ export default {
 
   components: { Day },
 
-  props: ['year', 'month'],
+  props: ['year', 'month', 'notes'],
 
   computed: {
     monthNumber() {
