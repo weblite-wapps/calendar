@@ -8,7 +8,7 @@
   "height": 420,
   "customizeArray": [
     {
-      "type": "text",
+      "type": "textField",
       "name": "year",
       "title": "Year",
       "detail": { "placeholder": "year", "type": "number" }
