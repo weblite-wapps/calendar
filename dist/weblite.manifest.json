@@ -3,6 +3,7 @@
   "instancable": true,
   "creator": false,
   "inline": true,
+  "fullscreen": false,
   "shareDB": true,
   "width": 335,
   "height": 420,
@@ -32,5 +33,10 @@
         { "value": 11, "label": "December" }
       ] }
     }
-  ]
+  ],
+  "servIndexes": {
+    "inline": "index",
+    "customize": "index",
+    "main": "index"
+  }
 }
