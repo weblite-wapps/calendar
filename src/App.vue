@@ -1,24 +1,13 @@
 <template>
-<div :class="$style.root">
-  <Header
-    :year="year"
-    :month="month"
-  />
+  <div :class="$style.root">
+    <Header :year="year" :month="month"/>
 
-  <Weekday />
+    <Weekday/>
 
-  <Days
-    :year="year"
-    :month="month"
-    :notes="notes"
-    :changeNotes="changeNotes"
-  />
+    <Days :year="year" :month="month" :notes="notes" :changeNotes="changeNotes"/>
 
-  <div
-    v-if="customizeMode"
-    :class="$style.customize"
-  />
-</div>
+    <div v-if="customizeMode" :class="$style.customize"/>
+  </div>
 </template>
 
 
@@ -33,11 +22,12 @@ import webliteHandler from './helper/functions/weblite.api'
 // W
 const { W } = window
 
-
 export default {
   name: 'App',
 
-  created() { W && webliteHandler(this) },
+  created() {
+    W && webliteHandler(this)
+  },
 
   components: {
     Header,
@@ -47,13 +37,15 @@ export default {
 
   data: () => ({
     customizeMode: false,
-    year: 2018,
+    year: 2019,
     month: 0,
     notes: {},
   }),
 
   methods: {
-    changeNotes(day, note) { addNote(day, note) },
+    changeNotes(day, note) {
+      addNote(day, note)
+    },
   },
 }
 </script>

@@ -1,7 +1,5 @@
 <template>
-<h1 :class="$style.root">
-  {{ monthName }} {{ year }}
-</h1>
+  <h1 :class="$style.root">{{ monthName }} {{ year }}</h1>
 </template>
 
 
@@ -13,22 +11,22 @@ export default {
 
   computed: {
     monthName() {
-        const monthNames = [
-          'January',
-          'February',
-          'March',
-          'April',
-          'May',
-          'June',
-          'July',
-          'August',
-          'September',
-          'October',
-          'November',
-          'December',
-        ]
+      const monthNames = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
+      ]
 
-        return monthNames[this.month]
+      return monthNames[this.month]
     },
   },
 }

@@ -1,19 +1,18 @@
 <template>
-<div>
-  <Day
-    v-for="number in numbers"
-    :key="number"
-    :number="number - (numbers - monthNumber)"
-    :note="notes[number - (numbers - monthNumber)]"
-    :changeNotes="changeNotes"
-  />
-</div>
+  <div>
+    <Day
+      v-for="number in numbers"
+      :key="number"
+      :number="number - (numbers - monthNumber)"
+      :note="notes[number - (numbers - monthNumber)]"
+      :changeNotes="changeNotes"
+    />
+  </div>
 </template>
 
 
 <script>
 import Day from './Day'
-
 
 export default {
   name: 'Days',
@@ -28,7 +27,9 @@ export default {
       return monthNumbers[this.month]
     },
 
-    numbers() { return this.monthNumber + new Date(this.year, this.month, 1).getDay() }
+    numbers() {
+      return this.monthNumber + new Date(this.year, this.month, 1).getDay()
+    },
   },
 }
 </script>

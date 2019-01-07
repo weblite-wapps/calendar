@@ -1,6 +1,7 @@
 {
   "name": "calendar",
-  "id": "5afd7069d17ae32f9743a994",
+  "id": "5c3319108361c04c7a75e6e2",
+  "searchable": true,
   "instancable": true,
   "creator": false,
   "inline": true,
@@ -13,26 +14,28 @@
       "type": "textField",
       "name": "year",
       "title": "Year",
-      "detail": { "placeholder": "year", "type": "number" }
+      "detail": { "placeholder": "year" }
     },
     {
       "type": "select",
       "name": "month",
       "title": "Month",
-      "detail": { "options": [
-        { "value": 0, "label": "January" },
-        { "value": 1, "label": "February" },
-        { "value": 2, "label": "March" },
-        { "value": 3, "label": "April" },
-        { "value": 4, "label": "May" },
-        { "value": 5, "label": "June" },
-        { "value": 6, "label": "July" },
-        { "value": 7, "label": "August" },
-        { "value": 8, "label": "September" },
-        { "value": 9, "label": "October" },
-        { "value": 10, "label": "November" },
-        { "value": 11, "label": "December" }
-      ] }
+      "detail": {
+        "options": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11"
+        ]
+      }
     }
   ],
   "servIndexes": {
