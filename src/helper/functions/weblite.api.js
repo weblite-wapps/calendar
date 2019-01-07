@@ -1,11 +1,11 @@
 // W && R
 const { W, R } = window
 
-
-export default (vueRoot) => {
+export default vueRoot => {
   /* change mode */
-  if (W.mode === 'customize') { vueRoot.customizeMode = true }
-
+  if (W.mode === 'customize') {
+    vueRoot.customizeMode = true
+  }
 
   /* Load Customization Data */
   // get Customize Value
@@ -14,13 +14,13 @@ export default (vueRoot) => {
     vueRoot.month = customize.month
   })
 
-
   /* ShareDB */
   // get notes from shareDB Server
-  W.share.getFromServer([]).then(() => W.start())
+  W.share.getFromServer([]).then(W.start)
   // shareDB sunbscription
-  W.share.subscribe((notes) => { vueRoot.notes = notes || {} })
-
+  W.share.subscribe(notes => {
+    vueRoot.notes = notes || {}
+  })
 
   /* Customization */
   // start instantly if mode is customized
