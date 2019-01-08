@@ -1,16 +1,16 @@
 <template>
-<label :class="[$style.day, invalidClass(number)]">
-  <input
-    class='appointment'
-    placeholder='What would you like to do?'
-    required='true'
-    type='text'
-    :value="note"
-    @input="changeNotes(number, $event.target.value)"
-  >
-  <span>{{ number }}</span>
-  <em></em>
-</label>
+  <label :class="[$style.day, invalidClass(number)]">
+    <input
+      class="appointment"
+      placeholder="What would you like to do?"
+      required="true"
+      type="text"
+      :value="note"
+      @input="changeNotes(number, $event.target.value)"
+    >
+    <span :class="[new Date().getDate() === number && $style.today]">{{ number }}</span>
+    <em></em>
+  </label>
 </template>
 
 
@@ -21,7 +21,9 @@ export default {
   props: ['number', 'note', 'changeNotes'],
 
   methods: {
-    invalidClass(number) { if (number < 1) return this.$style.invalid },
+    invalidClass(number) {
+      if (number < 1) return this.$style.invalid
+    },
   },
 }
 </script>
@@ -44,12 +46,12 @@ export default {
   border-radius: 50%;
   border: 2px solid #29323f;
   text-align: center;
-  transition: all .2s linear;
+  transition: all 0.2s linear;
   cursor: pointer;
 }
 
 .day span:hover {
-  border-color: #e7d84f;
+  border-color: #fcee6d;
 }
 
 .day em {
@@ -57,16 +59,16 @@ export default {
   position: absolute;
   border-radius: 50%;
   border-color: #29323f;
-  width: 3px;
-  height: 3px;
-  background-color: #685e02;
-  margin-left: 11px;
+  width: 7px;
+  height: 7px;
+  background-color: #fcee6d;
+  margin-left: 9px;
   margin-top: 2px;
   opacity: 0;
-  transition: all .2s linear;
+  transition: all 0.2s linear;
 }
 
-.day input[type=text] {
+.day input[type='text'] {
   border: 0;
   opacity: 0;
   position: absolute;
@@ -77,11 +79,11 @@ export default {
   padding: 0;
   outline: none;
   font-size: 16px;
-  transition: height .2s linear, opacity .2s linear, color .02s linear;
+  transition: height 0.2s linear, opacity 0.2s linear, color 0.02s linear;
   color: #fff;
 }
 
-.day input[type=text]:focus {
+.day input[type='text']:focus {
   opacity: 1;
   height: 35px;
   padding: 10px 40px;
@@ -90,7 +92,7 @@ export default {
   color: #29323f;
 }
 
-.day input[type=text]:focus + span {
+.day input[type='text']:focus + span {
   color: #fcee6d;
   border-color: #fcee6d;
   background: #fcee6d;
@@ -99,7 +101,7 @@ export default {
   margin-bottom: 65px;
 }
 
-.day input[type=text]:focus ~ em {
+.day input[type='text']:focus ~ em {
   border-radius: 0;
   border: 5px solid transparent;
   background: transparent;
@@ -112,7 +114,7 @@ export default {
   opacity: 1;
 }
 
-.day input[type=text]:valid ~ em {
+.day input[type='text']:valid ~ em {
   display: inline-block;
   opacity: 1;
 }
@@ -123,7 +125,12 @@ export default {
   height: 25px;
 }
 
-.invalid span, .invalid input {
+.invalid span,
+.invalid input {
   display: none;
+}
+
+.today {
+  background-color: brown;
 }
 </style>
