@@ -1,16 +1,8 @@
 // W && R
-const { W, R } = window
+const { W } = window
 
 const handleCustomizeMode = (vueRoot, start) => {
   vueRoot.customizeMode = true
-
-  // change on customization
-  W.onChangeValue(({ key, value }) => {
-    if (key === 'year') vueRoot.year = value
-    else if (key === 'month') vueRoot.month = value
-  })
-  // handle customize object
-  W.changeCustomize(R.identity)
 
   // start instantly if mode is customized
   start()
@@ -41,5 +33,10 @@ export default vueRoot =>
         mode === 'customize' ? handleCustomizeMode : handleNormalMode
 
       handler(vueRoot, start)
+    },
+
+    onCustomizeValueChange({ key, value }) {
+      if (key === 'year') vueRoot.year = value
+      else if (key === 'month') vueRoot.month = value
     },
   })
