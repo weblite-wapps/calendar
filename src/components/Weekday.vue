@@ -1,13 +1,7 @@
 <template>
-<div>
-  <label
-    :class="$style.root"
-    v-for="day in weekday"
-    :key="day"
-  >
-    {{ day }}
-  </label>
-</div>
+  <div>
+    <label :class="$style.root" v-for="day in weekday" :key="day">{{ day }}</label>
+  </div>
 </template>
 
 
