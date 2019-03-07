@@ -4,7 +4,13 @@
 
     <Weekday/>
 
-    <Days :year="year" :month="month" :notes="notes" :changeNotes="changeNotes"/>
+    <Days
+      :username="username"
+      :year="year"
+      :month="month"
+      :notes="notes"
+      :changeNotes="changeNotes"
+    />
 
     <div v-if="customizeMode" :class="$style.customize"/>
   </div>
@@ -39,6 +45,8 @@ export default {
     customizeMode: false,
     year: 2018,
     month: 0,
+    username: 'Ali',
+    isAdmin: false,
     notes: {},
   }),
 

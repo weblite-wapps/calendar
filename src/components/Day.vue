@@ -1,14 +1,14 @@
 <template>
   <label :class="[$style.day, invalidClass(number)]">
-    <input
-      class="appointment"
+    <!-- <p class="kind">{{ username }}</p> -->
+    <textarea
       dir="auto"
       placeholder="What would you like to do?"
       required="true"
       type="text"
       :value="note"
       @input="changeNotes(number, $event.target.value)"
-    >
+    />
     <span>{{ number }}</span>
     <em></em>
   </label>
@@ -19,7 +19,7 @@
 export default {
   name: 'Days',
 
-  props: ['number', 'note', 'changeNotes'],
+  props: ['username', 'number', 'note', 'changeNotes'],
 
   methods: {
     invalidClass(number) {
@@ -69,7 +69,7 @@ export default {
   transition: all 0.2s linear;
 }
 
-.day input[type='text'] {
+.day textarea[type='text'] {
   border: 0;
   opacity: 0;
   position: absolute;
@@ -84,7 +84,7 @@ export default {
   color: #fff;
 }
 
-.day input[type='text']:focus {
+.day textarea[type='text']:focus {
   opacity: 1;
   height: 35px;
   padding: 10px 40px;
@@ -93,7 +93,7 @@ export default {
   color: #29323f;
 }
 
-.day input[type='text']:focus + span {
+.day textarea[type='text']:focus + span {
   color: #fcee6d;
   border-color: #fcee6d;
   background: #fcee6d;
@@ -102,7 +102,7 @@ export default {
   margin-bottom: 65px;
 }
 
-.day input[type='text']:focus ~ em {
+.day textarea[type='text']:focus ~ em {
   border-radius: 0;
   border: 5px solid transparent;
   background: transparent;
@@ -115,7 +115,7 @@ export default {
   opacity: 1;
 }
 
-.day input[type='text']:valid ~ em {
+.day textarea[type='text']:valid ~ em {
   display: inline-block;
   opacity: 1;
 }
@@ -127,7 +127,7 @@ export default {
 }
 
 .invalid span,
-.invalid input {
+.invalid textarea {
   display: none;
 }
 </style>
