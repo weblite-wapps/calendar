@@ -43,7 +43,7 @@ export default {
 
   data: () => ({
     customizeMode: false,
-    year: 2018,
+    year: 2019,
     month: 0,
     username: 'Ali',
     isAdmin: false,

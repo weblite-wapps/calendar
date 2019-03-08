@@ -8,8 +8,8 @@
       type="text"
       :value="note"
       @input="changeNotes(number, $event.target.value)"
-    />
-    <span>{{ number }}</span>
+    >
+    <span :class="[new Date().getDate() === number && $style.today]">{{ number }}</span>
     <em></em>
   </label>
 </template>
@@ -52,7 +52,7 @@ export default {
 }
 
 .day span:hover {
-  border-color: #e7d84f;
+  border-color: #fcee6d;
 }
 
 .day em {
@@ -60,16 +60,20 @@ export default {
   position: absolute;
   border-radius: 50%;
   border-color: #29323f;
-  width: 3px;
-  height: 3px;
-  background-color: #685e02;
-  margin-left: 11px;
+  width: 7px;
+  height: 7px;
+  background-color: #fcee6d;
+  margin-left: 9px;
   margin-top: 2px;
   opacity: 0;
   transition: all 0.2s linear;
 }
 
+<<<<<<< HEAD
 .day textarea[type='text'] {
+=======
+.day input[type='text'] {
+>>>>>>> dev
   border: 0;
   opacity: 0;
   position: absolute;
@@ -84,7 +88,11 @@ export default {
   color: #fff;
 }
 
+<<<<<<< HEAD
 .day textarea[type='text']:focus {
+=======
+.day input[type='text']:focus {
+>>>>>>> dev
   opacity: 1;
   height: 35px;
   padding: 10px 40px;
@@ -93,7 +101,11 @@ export default {
   color: #29323f;
 }
 
+<<<<<<< HEAD
 .day textarea[type='text']:focus + span {
+=======
+.day input[type='text']:focus + span {
+>>>>>>> dev
   color: #fcee6d;
   border-color: #fcee6d;
   background: #fcee6d;
@@ -102,7 +114,11 @@ export default {
   margin-bottom: 65px;
 }
 
+<<<<<<< HEAD
 .day textarea[type='text']:focus ~ em {
+=======
+.day input[type='text']:focus ~ em {
+>>>>>>> dev
   border-radius: 0;
   border: 5px solid transparent;
   background: transparent;
@@ -115,7 +131,11 @@ export default {
   opacity: 1;
 }
 
+<<<<<<< HEAD
 .day textarea[type='text']:valid ~ em {
+=======
+.day input[type='text']:valid ~ em {
+>>>>>>> dev
   display: inline-block;
   opacity: 1;
 }
@@ -127,7 +147,15 @@ export default {
 }
 
 .invalid span,
+<<<<<<< HEAD
 .invalid textarea {
+=======
+.invalid input {
+>>>>>>> dev
   display: none;
+}
+
+.today {
+  background-color: brown;
 }
 </style>
