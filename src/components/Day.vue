@@ -7,6 +7,7 @@
       type="text"
       :value="note"
       @input="changeNotes(number, $event.target.value)"
+      @focus="changeInitialValue"
       @blur="notifToAll"
     />
     <span :class="[new Date().getDate() === number && $style.today]">{{ number }}</span>
@@ -23,6 +24,12 @@ export default {
 
   props: ['number', 'note'],
 
+  data() {
+    return {
+      initialValue: '',
+    }
+  },
+
   computed: {
     ...mapState(['username']),
   },
@@ -32,11 +39,14 @@ export default {
       if (number < 1) return this.$style.invalid
     },
     notifToAll() {
-      this.note &&
+      (this.initialValue !== this.note) &&
         W.sendNotificationToAll(
           `Event was added by ${this.username}`,
           this.note,
         )
+    },
+    changeInitialValue() {
+      this.initialValue = this.note
     },
     changeNotes(day, note) {
       this.$store.dispatch('addNote', { day, note })
