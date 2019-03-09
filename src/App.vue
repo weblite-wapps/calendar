@@ -1,16 +1,10 @@
 <template>
   <div :class="$style.root">
-    <Header :year="year" :month="month"/>
+    <Header />
 
-    <Weekday/>
+    <Weekday/> 
 
-    <Days
-      :username="username"
-      :year="year"
-      :month="month"
-      :notes="notes"
-      :changeNotes="changeNotes"
-    />
+    <Days />
 
     <div v-if="customizeMode" :class="$style.customize"/>
   </div>
@@ -18,18 +12,23 @@
 
 
 <script>
+// modules
+import { mapState } from 'vuex'
 // components
 import Header from './components/Header'
 import Weekday from './components/Weekday'
 import Days from './components/Days'
 // helper
-import { addNote } from './helper/functions/changeNotes'
 import webliteHandler from './helper/functions/weblite.api'
+// store
+import store from './store'
 // W
 const { W } = window
 
 export default {
   name: 'App',
+
+  store,
 
   created() {
     W && webliteHandler(this)
@@ -41,19 +40,10 @@ export default {
     Days,
   },
 
-  data: () => ({
-    customizeMode: false,
-    year: 2019,
-    month: 0,
-    username: 'Ali',
-    isAdmin: false,
-    notes: {},
-  }),
-
-  methods: {
-    changeNotes(day, note) {
-      addNote(day, note)
-    },
+  computed: {
+    ...mapState([
+      'customizeMode',
+    ]),
   },
 }
 </script>

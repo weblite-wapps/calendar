@@ -4,12 +4,14 @@
 
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   name: 'Header',
 
-  props: ['year', 'month'],
-
   computed: {
+    ...mapState(['year', 'month']),
+
     monthName() {
       const monthNames = [
         'January',

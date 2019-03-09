@@ -1,6 +1,5 @@
 <template>
   <label :class="[$style.day, invalidClass(number)]">
-    <!-- <p class="kind">{{ username }}</p> -->
     <textarea
       dir="auto"
       placeholder="What would you like to do?"
@@ -8,7 +7,8 @@
       type="text"
       :value="note"
       @input="changeNotes(number, $event.target.value)"
-    >
+      @blur="notifToAll"
+    />
     <span :class="[new Date().getDate() === number && $style.today]">{{ number }}</span>
     <em></em>
   </label>
@@ -16,14 +16,30 @@
 
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   name: 'Days',
 
-  props: ['username', 'number', 'note', 'changeNotes'],
+  props: ['number', 'note'],
+
+  computed: {
+    ...mapState(['username']),
+  },
 
   methods: {
     invalidClass(number) {
       if (number < 1) return this.$style.invalid
+    },
+    notifToAll() {
+      this.note &&
+        W.sendNotificationToAll(
+          `Event was added by ${this.username}`,
+          this.note,
+        )
+    },
+    changeNotes(day, note) {
+      this.$store.dispatch('addNote', { day, note })
     },
   },
 }
@@ -69,11 +85,7 @@ export default {
   transition: all 0.2s linear;
 }
 
-<<<<<<< HEAD
 .day textarea[type='text'] {
-=======
-.day input[type='text'] {
->>>>>>> dev
   border: 0;
   opacity: 0;
   position: absolute;
@@ -88,11 +100,7 @@ export default {
   color: #fff;
 }
 
-<<<<<<< HEAD
 .day textarea[type='text']:focus {
-=======
-.day input[type='text']:focus {
->>>>>>> dev
   opacity: 1;
   height: 35px;
   padding: 10px 40px;
@@ -101,11 +109,7 @@ export default {
   color: #29323f;
 }
 
-<<<<<<< HEAD
 .day textarea[type='text']:focus + span {
-=======
-.day input[type='text']:focus + span {
->>>>>>> dev
   color: #fcee6d;
   border-color: #fcee6d;
   background: #fcee6d;
@@ -114,11 +118,7 @@ export default {
   margin-bottom: 65px;
 }
 
-<<<<<<< HEAD
 .day textarea[type='text']:focus ~ em {
-=======
-.day input[type='text']:focus ~ em {
->>>>>>> dev
   border-radius: 0;
   border: 5px solid transparent;
   background: transparent;
@@ -131,11 +131,7 @@ export default {
   opacity: 1;
 }
 
-<<<<<<< HEAD
 .day textarea[type='text']:valid ~ em {
-=======
-.day input[type='text']:valid ~ em {
->>>>>>> dev
   display: inline-block;
   opacity: 1;
 }
@@ -147,11 +143,7 @@ export default {
 }
 
 .invalid span,
-<<<<<<< HEAD
 .invalid textarea {
-=======
-.invalid input {
->>>>>>> dev
   display: none;
 }
 

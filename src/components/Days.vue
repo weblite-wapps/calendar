@@ -5,14 +5,14 @@
       :key="number"
       :number="number - (numbers - monthNumber)"
       :note="notes[number - (numbers - monthNumber)]"
-      :username="username"
-      :changeNotes="changeNotes"
     />
   </div>
 </template>
 
 
 <script>
+import { mapState } from 'vuex'
+
 import Day from './Day'
 
 export default {
@@ -20,9 +20,9 @@ export default {
 
   components: { Day },
 
-  props: ['username', 'year', 'month', 'notes', 'changeNotes'],
-
   computed: {
+    ...mapState(['year', 'month', 'notes']),
+
     monthNumber() {
       const monthNumbers = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
       return monthNumbers[this.month]

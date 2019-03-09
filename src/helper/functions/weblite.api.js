@@ -20,10 +20,12 @@ const handleNormalMode = (vueRoot, start) => {
       },
     ] = data
 
-    vueRoot.year = year
-    vueRoot.month = month
-    vueRoot.username = name
-    vueRoot.isAdmin = creator
+    vueRoot.$store.commit('changeWebliteRelatedData', {
+      year,
+      month,
+      username: name,
+      isAdmin: creator,
+    })
 
     start()
   })
