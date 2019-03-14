@@ -23,8 +23,8 @@ export default new Vuex.Store({
 
   mutations: {
     changeWebliteRelatedData(state, { year, month, username, isAdmin }) {
-      state.year = year
-      state.month = month
+      state.year = year || new Date().getFullYear()
+      state.month = month || new Date().getMonth()
       state.username = username
       state.isAdmin = isAdmin
       W.start()
