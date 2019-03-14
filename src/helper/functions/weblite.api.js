@@ -2,13 +2,13 @@
 const { W } = window
 
 const handleCustomizeMode = (vueRoot, start) => {
-  vueRoot.customizeMode = true
+  vueRoot.$store.commit('changeCustomizeMode', true)
 
   // start instantly if mode is customized
   start()
 }
 
-const handleNormalMode = (vueRoot, start) => {
+const handleNormalMode = vueRoot => {
   // get notes from shareDB Server
   // get Customize Value
   Promise.all([W.loadData(), W.share.getFromServer([])]).then(data => {
@@ -26,13 +26,11 @@ const handleNormalMode = (vueRoot, start) => {
       username: name,
       isAdmin: creator,
     })
-
-    start()
   })
 
-  // shareDB sunbscription
+  // shareDB subscription
   W.share.subscribe(notes => {
-    vueRoot.notes = notes || {}
+    vueRoot.$store.commit('changeNotes', notes || {})
   })
 }
 
@@ -46,7 +44,7 @@ export default vueRoot =>
     },
 
     onCustomizeValueChange({ key, value }) {
-      if (key === 'year') vueRoot.year = value
-      else if (key === 'month') vueRoot.month = value
+      if (key === 'year') vueRoot.$store.commit('changeYear', value)
+      else if (key === 'month') vueRoot.$store.commit('changeMonth', value)
     },
   })

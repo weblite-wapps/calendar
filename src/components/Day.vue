@@ -17,7 +17,10 @@
 
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from 'vuex' 
+// W
+const { W } = window
+
 
 export default {
   name: 'Days',
@@ -39,11 +42,9 @@ export default {
       if (number < 1) return this.$style.invalid
     },
     notifToAll() {
-      (this.initialValue !== this.note) &&
-        W.sendNotificationToAll(
-          `Event was added by ${this.username}`,
-          this.note,
-        )
+      if (this.initialValue !== this.note) {
+        W.sendNotificationToAll(`Event was added by ${this.username}`, this.note)
+      }
     },
     changeInitialValue() {
       this.initialValue = this.note

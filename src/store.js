@@ -13,7 +13,7 @@ export default new Vuex.Store({
     // stuff came from weblite
     year: 2019,
     month: 0,
-    username: 'Ali',
+    username: '',
     isAdmin: false,
     customizeMode: false,
 
@@ -27,6 +27,19 @@ export default new Vuex.Store({
       state.month = month
       state.username = username
       state.isAdmin = isAdmin
+      W.start()
+    },
+
+    changeYear(state, value) {
+      state.year = value
+    },
+
+    changeMonth(state, value) {
+      state.month = value
+    },
+
+    changeCustomizeMode(state, value) {
+      state.customizeMode = value
     },
 
     changeNotes(state, notes) {
