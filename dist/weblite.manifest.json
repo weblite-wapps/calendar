@@ -2,7 +2,7 @@
   "name": "calendar",
   "id": "5c3319108361c04c7a75e6e2",
   "searchable": true,
-  "instancable": true,
+  "instantiable": true,
   "creator": false,
   "inline": true,
   "fullscreen": false,
