@@ -18,8 +18,7 @@
 
 <script>
 import { mapState } from 'vuex' 
-// W
-const { W } = window
+import notif from '../helper/functions/notification'
 
 
 export default {
@@ -30,6 +29,7 @@ export default {
   data() {
     return {
       initialValue: '',
+      type: '',
     }
   },
 
@@ -42,12 +42,18 @@ export default {
       if (number < 1) return this.$style.invalid
     },
     notifToAll() {
-      if (this.initialValue !== this.note) {
-        W.sendNotificationToAll(`Event was added by ${this.username}`, this.note)
+      const { initialValue, note, username } = this
+
+      if (initialValue !== note) {
+        if (!initialValue) this.type = 'add'
+        else if (!note) this.type = 'remove'
+        else this.type = 'modify'
+        notif(this.type, { username: username, note: note })
       }
     },
     changeInitialValue() {
       this.initialValue = this.note
+      return
     },
     changeNotes(day, note) {
       this.$store.dispatch('addNote', { day, note })
