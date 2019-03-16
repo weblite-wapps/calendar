@@ -7,7 +7,7 @@
       :note="notes[number - (numbers - monthNumber)]"
     />
   </div>
-</template>
+</template> 
 
 
 <script>
