@@ -15,7 +15,8 @@
       "type": "textField",
       "name": "year",
       "title": "Year",
-      "detail": { "placeholder": "year" }
+      "detail": { "placeholder": "year" },
+      "default": "2019"
     },
     {
       "type": "select",
@@ -44,5 +45,5 @@
     "customize": "index",
     "main": "index"
   },
-  "version": "0.1.1"
+  "version": "0.1.2"
 }
