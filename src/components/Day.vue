@@ -17,8 +17,12 @@
 
 
 <script>
+// modules
 import { mapState } from 'vuex' 
-import notif from '../helper/functions/notification'
+// helpers
+import { notif, getAnalyticsType} from '../helper/functions/notification'
+// const
+const { W } = window
 
 
 export default {
@@ -49,6 +53,7 @@ export default {
         else if (!note) this.type = 'remove'
         else this.type = 'modify'
         notif(this.type, { username: username, note: note })
+        W && W.analytics(getAnalyticsType(this.type))
       }
     },
     changeInitialValue() {
