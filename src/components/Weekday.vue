@@ -24,4 +24,16 @@ export default {
   text-align: center;
   color: #999;
 }
+
+@media screen and (max-width: 300px) {
+  .root {
+    margin: 5px;
+  }
+}
+
+@media screen and (max-width: 250px) {
+  .root {
+    margin: 1px;
+  }
+}
 </style>

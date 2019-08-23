@@ -54,6 +54,8 @@ export default new Vuex.Store({
   },
 
   plugins: [
-    ({ commit }) => W.share.subscribe(notes => commit('changeNotes', notes)),
+    ({ commit }) => {
+      // W.share.subscribe(notes => commit('changeNotes', notes))
+    },
   ],
 })

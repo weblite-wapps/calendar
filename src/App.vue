@@ -2,11 +2,11 @@
   <div :class="$style.root">
     <Header />
 
-    <Weekday/> 
+    <Weekday />
 
     <Days />
 
-    <div v-if="customizeMode" :class="$style.customize"/>
+    <div v-if="customizeMode" :class="$style.customize" />
   </div>
 </template>
 
@@ -41,9 +41,7 @@ export default {
   },
 
   computed: {
-    ...mapState([
-      'customizeMode',
-    ]),
+    ...mapState(['customizeMode']),
   },
 }
 </script>
@@ -52,7 +50,8 @@ export default {
 <style module>
 .root {
   background-color: #29323f;
-  width: 295px;
+  width: 100%;
+  max-width: 295px;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.6);
@@ -73,5 +72,21 @@ export default {
   z-index: 200;
   top: 0;
   right: 0;
+}
+
+@media screen and (max-width: 300px) {
+  .root {
+    font-size: 0.8rem;
+    width: 250px;
+    padding: 0px;
+  }
+}
+
+@media screen and (max-width: 250px) {
+  .root {
+    font-size: 0.6rem;
+    width: 200px;
+    padding: 0px;
+  }
 }
 </style>
