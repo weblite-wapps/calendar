@@ -112,7 +112,8 @@ export default {
   position: absolute;
   margin-top: 40px;
   left: -30px;
-  width: 380px;
+  width: 100%;
+  padding-right: 40px;
   height: 1px;
   padding: 0;
   outline: none;
@@ -125,9 +126,9 @@ export default {
   opacity: 1;
   height: 35px;
   /* line-height: 35px; */
-  padding: 10px 40px;
+  padding: 10px 40px 10px 40px;
   left: -30px;
-  width: 300px;
+  width: 275px;
   color: #29323f;
 }
 
@@ -177,6 +178,7 @@ export default {
   .day textarea[type='text']:focus {
     font-size: 0.9rem;
     height: 30px;
+    width: 230px;
   }
   .day textarea[type='text']:focus ~ em {
     margin-top: -60px;
@@ -198,6 +200,7 @@ export default {
 @media screen and (max-width: 250px) {
   .day textarea[type='text']:focus {
     font-size: 0.8rem;
+    width: 180px;
     height: 15px;
   }
   .day textarea[type='text']:focus + span {
