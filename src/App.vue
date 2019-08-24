@@ -52,7 +52,7 @@ export default {
   background-color: #29323f;
   width: 100%;
   max-width: 295px;
-  padding: 20px;
+  padding: 0px;
   border-radius: 5px;
   box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.6);
   font-family: 'Dosis', sans-serif;

@@ -125,7 +125,7 @@ export default {
   opacity: 1;
   height: 35px;
   /* line-height: 35px; */
-  padding: 10px 50px;
+  padding: 10px 40px;
   left: -30px;
   width: 300px;
   color: #29323f;
