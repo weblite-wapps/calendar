@@ -37,7 +37,7 @@ export default {
 
 <style module>
 .root {
-  font-size: 24px;
+  font-size: 2em;
   font-weight: bolder;
   text-align: center;
   color: #fcee6d;

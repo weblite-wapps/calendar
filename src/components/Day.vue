@@ -2,12 +2,13 @@
   <label :class="[$style.day, invalidClass(number)]">
     <textarea
       dir="auto"
+      ref="textRef"
       placeholder="What would you like to do?"
       required="true"
       type="text"
       :value="note"
-      @input="changeNotes(number, $event.target.value)"
       @focus="changeInitialValue"
+      @input="changeNotes(number, $event.target.value)"
       @blur="notifToAll"
     />
     <span :class="[new Date().getDate() === number && $style.today]">{{ number }}</span>
@@ -18,12 +19,11 @@
 
 <script>
 // modules
-import { mapState } from 'vuex' 
+import { mapState } from 'vuex'
 // helpers
-import { notif, getAnalyticsType} from '../helper/functions/notification'
+import { notif, getAnalyticsType } from '../helper/functions/notification'
 // const
 const { W } = window
-
 
 export default {
   name: 'Days',
@@ -102,7 +102,6 @@ export default {
   height: 7px;
   background-color: #fcee6d;
   margin-left: 9px;
-  margin-top: 2px;
   opacity: 0;
   transition: all 0.2s linear;
 }
@@ -113,11 +112,12 @@ export default {
   position: absolute;
   margin-top: 40px;
   left: -30px;
-  width: 380px;
+  width: 100%;
+  padding-right: 40px;
   height: 1px;
   padding: 0;
   outline: none;
-  font-size: 16px;
+  font-size: 1rem;
   transition: height 0.2s linear, opacity 0.2s linear, color 0.02s linear;
   color: #fff;
 }
@@ -125,9 +125,10 @@ export default {
 .day textarea[type='text']:focus {
   opacity: 1;
   height: 35px;
-  padding: 10px 40px;
+  /* line-height: 35px; */
+  padding: 10px 40px 10px 40px;
   left: -30px;
-  width: 300px;
+  width: 275px;
   color: #29323f;
 }
 
@@ -137,7 +138,7 @@ export default {
   background: #fcee6d;
   color: #29323f;
   font-weight: bold;
-  margin-bottom: 65px;
+  margin-bottom: 60px;
 }
 
 .day textarea[type='text']:focus ~ em {
@@ -145,8 +146,8 @@ export default {
   border: 5px solid transparent;
   background: transparent;
   border-bottom-color: white;
-  margin-top: -62px;
-  margin-left: 7px;
+  margin-top: -65px;
+  margin-left: 8px;
   width: 0;
   height: 0;
   display: inline-block;
@@ -171,5 +172,53 @@ export default {
 
 .today {
   background-color: brown;
+}
+
+@media screen and (max-width: 300px) {
+  .day textarea[type='text']:focus {
+    font-size: 0.9rem;
+    height: 30px;
+    width: 230px;
+  }
+  .day textarea[type='text']:focus ~ em {
+    margin-top: -60px;
+    margin-left: 7px;
+  }
+  .day {
+    margin: 5px;
+    size: 6px;
+  }
+
+  .day em {
+    margin-top: -3px;
+    margin-left: 9px;
+    width: 6px;
+    height: 6px;
+  }
+}
+
+@media screen and (max-width: 250px) {
+  .day textarea[type='text']:focus {
+    font-size: 0.8rem;
+    width: 180px;
+    height: 15px;
+  }
+  .day textarea[type='text']:focus + span {
+    margin-bottom: 50px;
+  }
+  .day textarea[type='text']:focus ~ em {
+    margin-top: -55px;
+    margin-left: 7px;
+  }
+  .day {
+    margin: 1px;
+  }
+
+  .day em {
+    margin-top: -6px;
+    margin-left: 10px;
+    width: 5px;
+    height: 5px;
+  }
 }
 </style>
